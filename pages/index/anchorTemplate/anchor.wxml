@@ -1,7 +1,8 @@
 <template name="anchorTmp">
   <view class='eachitem'>
     <view class="ava">
-      <image class="postImg" mode='aspectFill' src="https://www.rmrhsch.top/{{item.img[0]}}"></image>
+      <image wx:if="{{item.ifidcard==1}}" class="postImg" mode='aspectFill' src="/images/idcard.jpg"></image>
+      <image wx:elif="{{item.ifidcard==0}}" class="postImg" mode='aspectFill' src="https://www.rmrhsch.top/{{item.img[0]}}"></image>
       <text wx:if="{{item.type=='失物招领'}}" class="lost">{{item.type}}</text>
       <text wx:elif="{{item.type=='寻物启事'}}" class="found">{{item.type}}</text>
     </view>

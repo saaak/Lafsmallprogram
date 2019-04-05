@@ -57,10 +57,10 @@ Page({
     })
 
     console.log(detail)
-    if (detail[0]) {
-      result = detail[0].img[0]
+    if (detail.ifidcard==1) {
+      result = '/images/idcard.jpg'
     } else if (detail.img[0]){
-      result = detail.img[0]
+      result = 'https://www.rmrhsch.top'+detail.img[0]
     } else {
       result = "don't has img"
     }
@@ -255,21 +255,21 @@ Page({
         ctx.stroke()
         dynamic_height = dynamic_height + 15
 
-        ctx.drawImage('/icon/code.jpg', 20, dynamic_height, 100, 100)
+        ctx.drawImage('/images/dslscode.jpg', 20, dynamic_height, 100, 100)
         dynamic_height += 115
 
         ctx.setFillStyle('gray')
         ctx.setFontSize(14)
-        ctx.fillText('长按识别工大威海专属失物招领小程序', 140, dynamic_height - 105)
+        ctx.fillText('长按识帮帮帮专属失物招领小程序', 140, dynamic_height - 105)
         ctx.setFillStyle('gray')
         ctx.setFontSize(14)
-        ctx.fillText('校会维权服务部QQ：3085514680', 140, dynamic_height - 85)
+        ctx.fillText('丢三落四帮帮帮QQ群：3085514680', 140, dynamic_height - 85)
         ctx.setFillStyle('gray')
         ctx.setFontSize(14)
-        ctx.fillText('关注微信公众号：哈工大威海学生会', 140, dynamic_height - 65)
+        ctx.fillText('关注微信公众号：', 140, dynamic_height - 65)
         ctx.setFillStyle('gray')
         ctx.setFontSize(14)
-        ctx.fillText('祝你快乐生活每一天', 140, dynamic_height - 45)
+        ctx.fillText('祝你快(不)乐(丢)生(东)活(西)每一天', 140, dynamic_height - 45)
 
         self.setData({
           height: dynamic_height + "px"

@@ -20,7 +20,10 @@ Page({
         if (res.confirm) {
           var id = e.currentTarget.dataset.id
           wx.request({
-            // url: 'https://www.kashingliu.cn/wechattest/delete_stuff.php?id=' + id,
+            url: 'https://www.rmrhsch.top/api/lostitem/handoveritem',
+            data:{
+              itemid:id,
+            },
             success(res) {
               console.log(res)
               self.onLoad()
@@ -30,6 +33,13 @@ Page({
         } else if (res.cancel) {
         }
       }
+    })
+  },
+
+  isok: function(e){
+    wx.showModal({
+      title: '您已经交接过啦',
+      content: '感谢您对他人的帮助',
     })
   },
 
@@ -43,7 +53,10 @@ Page({
         if (res.confirm) {
           var id = e.currentTarget.dataset.id
           wx.request({
-            // url: 'https://www.kashingliu.cn/wechattest/delete_stuff.php?id=' + id,
+            url: 'https://www.rmrhsch.top/api/lostitem/delitem',
+            data:{
+              itemid:id,
+            },
             success(res) {
               console.log(res)
               self.onLoad()

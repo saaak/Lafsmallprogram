@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    major: ["未知学院","计算机科学与技术学院", "船舶与海洋工程学院", "海洋科学与技术学院", "材料科学与工程学院", "新能源学院", "土木工程学院", "汽车工程学院", "信息科学与工程学院", "经济管理学院", "理学院", "语言文学学院"],
+    major: ["文学院", "理学院", "马克思主义学院", "经济与管理学院", "教育科学学院", "外国语学院", "化学化工学院", "生命科学学院（海洋学院）", "机械工程学院", "信息科学技术学院", "电气工程学院", "纺织服装学院", "医学院（护理学院）", "公共卫生学院", "体育科学学院", "艺术学院（建筑学院）", "地理科学学院", "交通与土木工程学院", "药学院", "国际教育学院", "张謇学院", "神经再生重点实验室", "特种医学研究院","智能信息技术研究中心"],
     majorIndex: 0,
     openid: ""
   },
@@ -74,7 +74,8 @@ Page({
             input_phone: e.detail.value.input_phone,
             input_qq: e.detail.value.input_qq,
             input_place: e.detail.value.input_place.replace(/[\-\_\|\~\`\#\%\^\&\*\{\}\:\;\"\?]/g, ''),
-            openid: getApp().globalData.userInfo.openId
+            openid: getApp().globalData.userInfo.openId,
+            form_id: e.detail.formId
           },
           header: {
             'content-type': 'application/json' // 默认值

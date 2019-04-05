@@ -76,7 +76,7 @@
 
     <view wx:if="{{display}}">
       <view wx:for="{{detail.img}}" class='image' wx:key="{{detail.img}}">
-        <image src='https://www.rmrhsch.top/{{item}}' mode="widthFix" data-src='https://www.rmrhsch.top/{{item}}' style='width:100%;' bindtap='previewImage'></image>
+        <image src='https://www.rmrhsch.top{{item}}' mode="widthFix" data-src='https://www.rmrhsch.top{{item}}' style='width:100%;' bindtap='previewImage'></image>
       </view>
     </view>
   </view>

@@ -25,9 +25,9 @@ Page({
       }
     })
     wx.request({
-      // url: 'https://www.kashingliu.cn/wechattest/filter.php?timestamp='+options.time,
+      url: 'https://www.rmrhsch.top/api/lostitem/getlostitems',
       data: {
-
+        time:options.time,
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -35,7 +35,7 @@ Page({
       success(res) {
         console.log(res)
         self.setData({
-          currentList: res.data,
+          currentList: res.data.data,
         })
         if(res.data.length == 0) {
           self.setData({

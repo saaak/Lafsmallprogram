@@ -17,7 +17,8 @@ Page({
       data: {
         stuid: e.detail.value.stuid,
         sname: e.detail.value.stuname,
-        openid: getApp().globalData.openid
+        openid: getApp().globalData.openid,
+        stuphone: e.detail.value.stuphone,
       },
       success(res) {
         console.log(res)

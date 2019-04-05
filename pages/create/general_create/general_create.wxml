@@ -1,4 +1,4 @@
-<form bindsubmit="up_img">
+<form bindsubmit="up_img" report-submit='true'>
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
     <view class="page__bd">
         <!-- <view class="weui-cells__title">物品名称</view> -->

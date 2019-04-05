@@ -65,7 +65,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        // console.log(res)
+        console.log(res)
         wx.stopPullDownRefresh()
         console.log("finish")
         self.setData({
@@ -179,6 +179,22 @@ Page({
                     if (res.data.code == 200) {
                       getApp().globalData.userInfo = res.data.data;
                       getApp().globalData.openid = res.data.data.openId;
+                      wx.request({
+                        url: 'https://www.rmrhsch.top/api/user/getuserinfo',
+                        data: {
+                          openid: getApp().globalData.openid
+                        },
+                        method: 'POST',
+                        success: function (res) {
+                          if (res.data.code == 400) {
+                            wx.redirectTo({
+                              url: '/pages/stuverify/stuverify'
+                            });
+                          } else {
+
+                          }
+                        }
+                      })
                     } else {
                       getInfo();
                     }
@@ -195,23 +211,7 @@ Page({
                       }
                     });
                   },
-                  complete: function () { 
-                    wx.request({
-                      url:'https://www.rmrhsch.top/api/user/getuserinfo',
-                      data:{
-                        openid: getApp().globalData.openid
-                      },
-                      method:'POST',
-                      success:function(res){
-                        if(res.data.code==400){
-                          wx.redirectTo({
-                            url: '/pages/stuverify/stuverify'
-                          });
-                        }
-                      }
-                    })
-                    
-                  }
+                  
                 });
               }
             }

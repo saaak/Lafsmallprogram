@@ -23,6 +23,17 @@
    height: 100%;
    border-top-left-radius: 19rpx;
    border-top-right-radius: 19rpx;
+   z-index: -1;
+
+}
+.watermark{
+  width: 100%;
+   height: 100%;
+   border-top-left-radius: 19rpx;
+   border-top-right-radius: 19rpx;
+   z-index: 100;
+   overflow:hidden;
+   position: fixed;
 }
 .eachitem .ava .lost {
    font-size: 28rpx;

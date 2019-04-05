@@ -58,9 +58,15 @@ Page({
 
   previewImage: function (e) {
     var current = e.target.dataset.src;
+    var imgarr = this.data.detail.img;
+    imgarr.forEach(function(value,i){
+      var imgpath = value;
+      imgarr[i] = 'https://www.rmrhsch.top'+value;
+    })
+    console.log(imgarr)
     wx.previewImage({
       current: current, // 当前显示图片的http链接  
-      urls: this.data.detail.img // 需要预览的图片http链接列表  
+      urls: imgarr // 需要预览的图片http链接列表  
     })
   },
 
@@ -101,10 +107,10 @@ Page({
             'content-type': 'application/json' // 默认值
           },
           success(res) {
-            console.log(res)
             self.setData({
               contacts: res.data.data
             });
+            console.log(res)
             if (res.data.data.place == "null") {
               self.setData({
                 haslocation: false,
@@ -133,6 +139,7 @@ Page({
     } else if (options.check == 1) {
       console.log(options.put)
       let obj = JSON.parse(options.put)
+      console.log(obj)
       // if ()
       this.setData({
         contacts: obj.contacts,

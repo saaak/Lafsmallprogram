@@ -1,14 +1,17 @@
 <template name="anchorTmp">
   <view class='eachitem'>
     <view class="ava">
-      <image class="postImg" mode='aspectFill' src="https://www.rmrhsch.top/{{item.img[0]}}"></image>
+      <image wx:if="{{item.ifidcard==1}}" class="postImg" mode='aspectFill' src="/images/idcard.jpg"></image>
+      <image wx:elif="{{item.ifidcard==0}}" class="postImg" mode='aspectFill' src="https://www.rmrhsch.top/{{item.img[0]}}"></image>
+      <image class='watermark' mode='widthFix' src='/images/ishandover.png'></image>
       <text wx:if="{{item.type=='失物招领'}}" class="lost">{{item.type}}</text>
       <text wx:elif="{{item.type=='寻物启事'}}" class="found">{{item.type}}</text>
     </view>
     <view class="info">
       <image src='/images/white.png' class='underground'></image>
       <!-- <text class="time">{{item.time}}</text> -->
-      <button type='primary' data-id="{{item.id}}" class='ok' catchtap='ok'>已交接</button>
+      <button wx:if="{{item.ishandover=='0'}}" type='primary' data-id="{{item.id}}" class='ok' catchtap='ok'>交接</button>
+      <button wx:if="{{item.ishandover=='1'}}" type='primary' data-id="{{item.id}}" class='ok' catchtap='isok'>已交接</button>
       <button type='warn' data-id="{{item.id}}" class='del' catchtap='del'>删除</button>
       <text class="stuff">{{item.name}}</text>
     </view>

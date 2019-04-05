@@ -165,6 +165,7 @@ Page({
   generalsubmit: function (e) {
 
     let self = this;
+    console.log(e.detail.formId)
     var openid = ""
     wx.request({
         url: 'https://www.rmrhsch.top/api/lostitem/publostitems',
@@ -174,23 +175,22 @@ Page({
           detail: this.data.text_area.replace(/[\-\_\|\`\#\%\^\&\*\{\}\;\"]/g, '').replace(/[\?]/g, '？'),
           input_phone: e.detail.value.input_phone,
           input_qq: e.detail.value.input_qq,
-          input_place: e.detail.value.input_place.replace(/[\-\_\|\~\`\#\%\^\&\*\{\}\;\"\?]/g, ''),
+          input_place: e.detail.value.input_place,
           lostorfound: this.data.select,
           filepath: result,
-          openid: getApp().globalData.userInfo.openId
+          openid: getApp().globalData.userInfo.openId,
+          form_id: e.detail.formId
         },
         header: {
           'content-type': 'application/json' // 默认值
         },
         method:'POST',
         success(res) {
-          console.log(res.data.id)
-
-          console.log(e.detail.value)
           var initarray = new Array()
           for (var i = 0; i < result.length; i++) {
-            initarray.push('https://www.rmrhsch.top/' + result[i]);
+            initarray.push(result[i]);
           }
+          console.log('initarray')
           console.log(initarray)
           var display = true;
 
@@ -200,7 +200,7 @@ Page({
           var contacts = {};
           contacts.qq = e.detail.value.input_qq;
           contacts.phone = e.detail.value.input_phone;
-          contacts.place = e.detail.value.input_place.replace(/[\-\_\!\|\~\`\(\)\#\$\%\^\&\*\{\}\:\;\"\L\<\>\?]/g, '');
+          contacts.place = e.detail.value.input_place;
           contacts.detail = self.data.text_area.replace(/[\-\_\!\|\~\`\(\)\#\$\%\^\&\*\{\}\:\;\"\L\<\>]/g, '').replace(/[\?]/g, '？');
           console.log(contacts);
 

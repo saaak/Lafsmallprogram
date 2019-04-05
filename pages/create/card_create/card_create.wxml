@@ -1,4 +1,4 @@
-<form bindsubmit="bindsubmit">
+<form bindsubmit="bindsubmit" report-submit='true'>
   <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
       <view class="page__bd">
           <view class="weui-cells__title">丢卡人信息</view>
