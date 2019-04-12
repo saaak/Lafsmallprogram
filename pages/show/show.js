@@ -18,7 +18,37 @@ Page({
     hasphone: true,
     hassharebutton: true,
     hasborder: "none",
-    hide: true
+    hide: true,
+    showView: false
+  },
+
+  onChangeShowState: function () {
+    var that = this;
+    wx.showModal({
+      title: '温馨提示',
+      content: '您确定要查看该物品的联系方式？',
+      success(res){
+        if (res.confirm) {
+          that.setData({
+            showView: (!that.data.showView)
+          })
+          wx.request({
+            url: 'https://www.rmrhsch.top/api/lostitem/seecontact',
+            method:'POST',
+            data:{
+              Uid: getApp().globalData.userInfo.Uid,
+              itemid:that.data.itemid,
+            },
+            success(res){
+              console.log(res)
+            }
+          })
+        } else if (res.cancel) {
+
+        }
+      }
+    })
+    
   },
 
   showDialog() {
@@ -111,30 +141,30 @@ Page({
               contacts: res.data.data
             });
             console.log(res)
-            if (res.data.data.place == "null") {
+            if (res.data.data.place == "") {
               self.setData({
                 haslocation: false,
                 hasborder: "1rpx solid #e5e5e5;"
               })
             }
-            if (res.data.data.qq == null) {
+            if (res.data.data.qq == "") {
               self.setData({
                 hasqq: false
               })
             }
-            if (res.data.data.phone == null) {
+            if (res.data.data.phone == "") {
               self.setData({
                 hasphone: false
               })
             }
           }
         })
-        if (this.data.detail.type == "寻物启事") {
-          this.setData({
-            haslocation: false,
-            hasborder: "1rpx solid #e5e5e5;"
-          })
-        }
+        // if (this.data.detail.type == "寻物启事") {
+        //   this.setData({
+        //     haslocation: false,
+        //     hasborder: "1rpx solid #e5e5e5;"
+        //   })
+        // }
         console.log(this.data.display)
     } else if (options.check == 1) {
       console.log(options.put)
@@ -146,18 +176,18 @@ Page({
         detail: obj.detail,
         display: obj.display
       })
-      if (this.data.detail.type == "寻物启事" || this.data.contacts.place == "") {
+      if (this.data.detail.type == "寻物启事" || this.data.data.place == "") {
         this.setData({
           haslocation: false,
           hasborder: "1rpx solid #e5e5e5;"
         })
       }
-      if (this.data.contacts.qq == "") {
+      if (this.data.data.qq == "") {
         this.setData({
           hasqq: false
         })
       }
-      if (this.data.contacts.phone == "") {
+      if (this.data.data.phone == "") {
         this.setData({
           hasphone: false
         })
@@ -206,6 +236,23 @@ Page({
         }
       })
     }
+    wx.request({
+      url: 'https://www.rmrhsch.top/api/lostitem/checksee',
+      method:'POST',
+      data:{
+        Uid: getApp().globalData.userInfo.Uid,
+        itemid: this.data.itemid,
+      },
+      success(res){
+        if(res.data.code==200){
+          self.setData({
+            showView: true
+          })
+        }else{
+
+        }
+      }
+    })
   },
   
 

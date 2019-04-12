@@ -16,9 +16,13 @@
       </view>
     </view>
 
+    <view class="weui-btn-area {{showView?'hide':'show'}}" style='margin-top:15rpx;'>
+        <button class="weui-btn" type="primary" bindtap="onChangeShowState">显示联系方式</button>
+        
+    </view>
 
-    <view class="weui-cells__title">联系方式</view>
-    <view class="weui-panel" style='margin-top:0;'>
+    <view class="weui-cells__title {{showView?'show':'hide'}}">联系方式</view>
+    <view class="weui-panel {{showView?'show':'hide'}}" style='margin-top:0;'>
       <view>
 
         <view class='weui-panel__hd' style='padding:0;font-size=17px;color:black;'>
@@ -56,6 +60,21 @@
         </view>
       </view>
     </view>
+    <button 
+      class="weui-btn sharebutton" 
+      type="primary" 
+      style='background-color:#f96159;{{hassharebutton}}' 
+      hover-class='none'
+      bindtap='showDialog'
+    >
+      <view style='height: 70rpx; display: flex;align-items: center;justify-content: center;'>
+        <image 
+          src='/icon/spread.png' 
+          style='width:35rpx;height:35rpx;'
+        />
+        <text class='sharetext'>分享</text>
+      </view>
+    </button>
     <button 
       class="weui-btn sharebutton" 
       type="primary" 

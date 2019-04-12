@@ -1,4 +1,10 @@
 /* pages/show/show.wxss */
+.hide{
+ display: none;
+}
+.show{ 
+ display: block;
+}
 .mediabox {
   /* padding: 10px; */
 }

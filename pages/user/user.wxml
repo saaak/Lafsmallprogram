@@ -3,7 +3,8 @@
     <navigator url='{{nologin}}'>
       <image src='{{avatarUrl}}' class='avatar'></image>
     </navigator>
-    <text class='text'>{{nickName}}</text>
+    <view><text class='text'>{{nickName}}</text></view>
+    <!-- <button class="mini-btn" type="primary" size="mini">打卡</button> -->
   </view>
   <view class="weui-cells weui-cells_after-title">
     <button bindtap='mine' class="weui-cell weui-cell_access list" hover-class="none">
