@@ -176,18 +176,18 @@ Page({
         detail: obj.detail,
         display: obj.display
       })
-      if (this.data.detail.type == "寻物启事" || this.data.data.place == "") {
+      if (this.data.detail.type == "寻物启事" || this.data.contacts.place == "") {
         this.setData({
           haslocation: false,
           hasborder: "1rpx solid #e5e5e5;"
         })
       }
-      if (this.data.data.qq == "") {
+      if (this.data.contacts.qq == "") {
         this.setData({
           hasqq: false
         })
       }
-      if (this.data.data.phone == "") {
+      if (this.data.contacts.phone == "") {
         this.setData({
           hasphone: false
         })

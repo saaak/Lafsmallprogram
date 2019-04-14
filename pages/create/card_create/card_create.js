@@ -7,7 +7,8 @@ Page({
   data: {
     major: ["文学院", "理学院", "马克思主义学院", "经济与管理学院", "教育科学学院", "外国语学院", "化学化工学院", "生命科学学院（海洋学院）", "机械工程学院", "信息科学技术学院", "电气工程学院", "纺织服装学院", "医学院（护理学院）", "公共卫生学院", "体育科学学院", "艺术学院（建筑学院）", "地理科学学院", "交通与土木工程学院", "药学院", "国际教育学院", "张謇学院", "神经再生重点实验室", "特种医学研究院","智能信息技术研究中心"],
     majorIndex: 0,
-    openid: ""
+    openid: "",
+    firstsubmit:undefined,
   },
   bindMajorChange: function (e) {
     console.log('picker country 发生选择改变，携带值为', this.data.major[e.detail.value]);
@@ -17,6 +18,7 @@ Page({
     })
   },
   bindsubmit: function (e) {
+    if (that.data.firstJump){
     let self = this;
     var item = e.detail.value;
     if (item.cardid=='') {
@@ -113,6 +115,8 @@ Page({
       
       console.log(e)
     }
+    that.setData({ firstJump: false });
+    }
 
   },
 
@@ -120,7 +124,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({ firstJump: true })
   },
 
   /**

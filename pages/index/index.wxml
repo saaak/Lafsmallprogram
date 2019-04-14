@@ -32,6 +32,7 @@
         <view style='height:138px;margin-top:48px;'>
           <image src='/images/1x.jpg' style='height:138px;width:100%;' bindtap='test'></image>
         </view>
+        
         <view style='z-index:-1;height:65px;margin-top:2px;width:100%;'>
           <image src='/icon/create/filter.png' style='height:65px;width:100%;'></image>
         </view>

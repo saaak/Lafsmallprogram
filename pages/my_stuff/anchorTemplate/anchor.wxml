@@ -3,7 +3,7 @@
     <view class="ava">
       <image wx:if="{{item.ifidcard==1}}" class="postImg" mode='aspectFill' src="/images/idcard.jpg"></image>
       <image wx:elif="{{item.ifidcard==0}}" class="postImg" mode='aspectFill' src="https://www.rmrhsch.top/{{item.img[0]}}"></image>
-      <!-- <image class='watermark' mode='widthFix' src='/images/ishandover.png'></image> -->
+      <image wx:if="{{item.ishandover==1}}" class='watermark' mode='widthFix' src='/images/ishandover.png'></image>
       <text wx:if="{{item.type=='失物招领'}}" class="lost">{{item.type}}</text>
       <text wx:elif="{{item.type=='寻物启事'}}" class="found">{{item.type}}</text>
     </view>
